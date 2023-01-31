@@ -1,7 +1,10 @@
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
+const copyBtn = document.getElementById.getElementById('copy');
 
 menuBtn.addEventListener('click', mobileToggle);
+
+copyBtn.addEventListener('click',copyToClipboard);
 
 
 function mobileToggle(){
@@ -59,6 +62,21 @@ function isValidUrl(str) {
     return pattern.test(str);
   }
 
+
+
+  function copyToClipboard() {
+    // Get the text field
+    var copyText = document.getElementById("shortened");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+    
+    navigator.clipboard.writeText(copyText.value);
+    document.getElementById('copy').textContent = 'copied!';
+    
+  }
 
 
 
