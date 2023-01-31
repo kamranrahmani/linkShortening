@@ -4,7 +4,10 @@ const links = require('./models/index').links
 const utils = require('./utils/utilityMethods');
 const path = require('path');
 
-const port = process.env.PORT || 3000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
