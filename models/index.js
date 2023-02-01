@@ -2,7 +2,10 @@ const {Sequelize, DataTypes} = require('sequelize');
 const config = require('./database');
 const sequelize = new Sequelize(config.db,config.username,config.password,{
     host:config.host,
-    dialect:config.dialect
+    dialect:config.dialect,
+    dialectOptions:{
+        connectTimeout: 60000
+    }
 })
 
 sequelize.authenticate().then(()=>{
