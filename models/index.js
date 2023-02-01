@@ -2,13 +2,7 @@ const {Sequelize, DataTypes} = require('sequelize');
 const config = require('./database');
 const sequelize = new Sequelize(config.db,config.username,config.password,{
     host:config.host,
-    dialect:config.dialect,
-    pool:{
-        max: config.max,
-        min: config.min,
-        acquire: config.acquire,
-        idle: config.idle
-    }
+    dialect:config.dialect
 })
 
 sequelize.authenticate().then(()=>{
