@@ -1,8 +1,8 @@
 module.exports = {
-    host: "localhost",
+    host: "SG-webdev-projects-7168-mysql-master.servers.mongodirector.com",
     db: "link_shortner",
     username: "root",
-    password: "kamran911",
+    password: "Microstrip@911",
     dialect: "mysql",
 
     pool: {

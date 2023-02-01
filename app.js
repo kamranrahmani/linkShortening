@@ -14,7 +14,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/', (req,res)=>{
-    res.sendFile(path.join(__dirname, '/index.html'))
+    res.sendFile(path.join(__dirname, '/index.html'));
+    return
 })
 
 app.post('/short', async (req,res)=>{
@@ -30,6 +31,7 @@ app.post('/short', async (req,res)=>{
         linkRecord.protocol = req.protocol;
         linkRecord.host = req.get('host');
         res.json(linkRecord);
+        return
 })
 
 app.get('/:id' , async (req,res)=>{

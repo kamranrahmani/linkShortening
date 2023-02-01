@@ -1,6 +1,6 @@
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-const copyBtn = document.getElementById.getElementById('copy');
+const copyBtn = document.getElementById('copy');
 
 menuBtn.addEventListener('click', mobileToggle);
 
@@ -40,6 +40,7 @@ async function submitForm(e){
         }else{
         const responseData = await response.json();
         document.getElementById('result-item').classList.remove('hidden');
+        copyBtn.textContent = 'copy'
         document.getElementById('original').textContent = responseData.original;
         document.getElementById('shortened').textContent = responseData.protocol + '://' + responseData.host + '/'+ responseData.shortened;
         document.getElementById('shortened').href = '/'+responseData.shortened;
@@ -66,15 +67,10 @@ function isValidUrl(str) {
 
   function copyToClipboard() {
     // Get the text field
-    var copyText = document.getElementById("shortened");
-  
-    // Select the text field
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); // For mobile devices
-  
-    
-    navigator.clipboard.writeText(copyText.value);
-    document.getElementById('copy').textContent = 'copied!';
+    var copyText = document.getElementById("shortened").textContent;
+
+    navigator.clipboard.writeText(copyText);
+    copyBtn.textContent = 'copied!';
     
   }
 
